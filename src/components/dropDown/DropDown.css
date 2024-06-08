@@ -1,0 +1,27 @@
+.dropDownMainContainer {
+    position: relative;
+}
+
+.dropDownMainContainer > button {
+    color: white;
+    background-color: transparent;
+    transition: .2s;
+}
+
+.dropDownMainContainer > button:hover {
+    background-color: gray;
+}
+
+.dropDownMainContainer > button > svg {
+    transform: rotate(-80deg);
+}
+
+.dropDownContent {
+    display: none;
+    position: absolute;
+    right: 0;
+}
+
+.dropDownContentOpen {
+    display: flex;
+}

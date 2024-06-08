@@ -1,0 +1,104 @@
+.filterListMainContainer {
+    width: 220px;
+    z-index: 100;
+    border-radius: 7px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    backdrop-filter: blur(40px);
+    background: rgb(23, 23, 23, .5);
+    color: white;
+}
+
+.searchContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 7px 10px;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.searchContainer > input {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: white;
+}
+
+.searchContainer > svg:first-child {
+    margin-right: 3px;
+    transform: rotate(-80deg);
+    color: gray;
+}
+
+.searchContainer > svg:last-child {
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+.coinsListMainContainer {
+    margin: 5px;
+}
+
+.sortContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.sortContainer > button {
+    color: white;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: .2s;
+    padding: 2px 5px;
+}
+
+.sortContainer > button:hover {
+    background-color: gray;
+}
+
+.sortContainer > button > svg {
+    font-size: 16px;
+}
+
+.coinMainContainer {
+    height: 210px;
+    overflow: auto;
+}
+
+.coinMainContainer::-webkit-scrollbar {
+    width: 5px;
+}
+
+.coinMainContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.coinMainContainer::-webkit-scrollbar-thumb {
+    background: #0c0c0c;
+    border-radius: 10px;
+}
+
+.coinMainContainer > div {
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding: 0 5px;
+    border-radius: 8px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+}
+
+.coinMainContainer > div:hover {
+    background-color: gray;
+}
+
+.coinMainContainer > div > svg {
+    margin-right: 5px;
+}

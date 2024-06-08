@@ -1,0 +1,14 @@
+.buttonMainContainer {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.buttonMainContainer > svg {
+    margin-right: 5px;
+}
