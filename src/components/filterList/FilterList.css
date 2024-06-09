@@ -62,6 +62,7 @@
     border-radius: 8px;
     transition: .2s;
     padding: 2px 5px;
+    border: 0;
 }
 
 .sortContainer > button:hover {
