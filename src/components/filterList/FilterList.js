@@ -1,10 +1,17 @@
 import './FilterList.css';
-import { Icon } from '@iconify/react';
 import Button from '../button/Button';
-import { useState } from 'react';
-import { SWITCH_BUTTON } from '../../constants';
+import { useRef, useState } from 'react';
+import {
+  CodiconClose,
+  CodiconSearch,
+  CodiconStarEmpty,
+  CodiconStarFull,
+  SWITCH_BUTTON,
+} from '../../constants';
 
 const FilterList = ({ itemsArray }) => {
+  const searchInputRef = useRef(null);
+
   const [switcher, setSwitcher] = useState(true);
   const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
@@ -18,7 +25,10 @@ const FilterList = ({ itemsArray }) => {
     setSearchValue(event.target.value);
   };
 
-  const clearSearchInput = () => setSearchValue('');
+  const clearSearchInput = () => {
+    focusInput();
+    setSearchValue('');
+  };
   const removeFromFavorites = coin => () =>
     setFavorites(favorites.filter(item => item !== coin));
 
@@ -32,12 +42,17 @@ const FilterList = ({ itemsArray }) => {
     setInputOnFocus(isFocused);
   };
 
+  const focusInput = () => {
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
   return (
     <div className="filterListMainContainer">
       <div className="searchContainer">
-        <Icon
-          icon="codicon:search"
-          style={inputOnFocus ? { color: 'white' } : {}}
+        <CodiconSearch
+          style={inputOnFocus || searchValue.length ? { color: 'white' } : {}}
         />
         <input
           type="text"
@@ -46,10 +61,12 @@ const FilterList = ({ itemsArray }) => {
           onChange={searchInputHandler}
           onFocus={handleFocusBlur(true)}
           onBlur={handleFocusBlur(false)}
+          ref={searchInputRef}
         />
-        {!!searchValue.length && (
-          <Icon icon="codicon:close" onClick={clearSearchInput} />
-        )}
+        <CodiconClose
+          onClick={clearSearchInput}
+          className={searchValue.length ? 'clearSearchInput' : ''}
+        />
       </div>
       <div className="coinsListMainContainer">
         <div className="sortContainer">
@@ -67,15 +84,9 @@ const FilterList = ({ itemsArray }) => {
           {filteredCoinsList.map(coin => (
             <div key={`coin_${coin}`}>
               {favorites.includes(coin) ? (
-                <Icon
-                  icon="codicon:star-full"
-                  onClick={removeFromFavorites(coin)}
-                />
+                <CodiconStarFull onClick={removeFromFavorites(coin)} />
               ) : (
-                <Icon
-                  icon="codicon:star-empty"
-                  onClick={addToFavorites(coin)}
-                />
+                <CodiconStarEmpty onClick={addToFavorites(coin)} />
               )}
               <span>{coin}</span>
             </div>

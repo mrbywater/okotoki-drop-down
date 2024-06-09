@@ -2,6 +2,7 @@ import './App.css';
 import DropDown from './components/dropDown/DropDown';
 import { useEffect, useState } from 'react';
 import FilterList from './components/filterList/FilterList';
+import { CodiconSearch } from './constants';
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div className="appMainContainer">
-      <DropDown buttonIcon="search" buttonText="SEARCH">
+      <DropDown buttonIcon={<CodiconSearch />} buttonText="SEARCH">
         <FilterList itemsArray={coins} />
       </DropDown>
     </div>

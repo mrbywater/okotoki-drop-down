@@ -10,8 +10,12 @@ const DropDown = props => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropDownPosition, setDropDownPosition] = useState({ left: 0 });
 
-  const isOpenHandler = () => setIsOpen(!isOpen);
-
+  const isOpenHandler = () => {
+    setIsOpen(!isOpen);
+    if (!isOpen) {
+      logDropDownPosition();
+    }
+  };
   const handleClickOutside = event => {
     if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
       setIsOpen(false);

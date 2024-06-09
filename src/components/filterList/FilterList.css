@@ -36,6 +36,13 @@
 
 .searchContainer > svg:last-child {
     color: cornflowerblue;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.clearSearchInput {
+    opacity: 1 !important;
+    pointer-events: auto !important;
     cursor: pointer;
 }
 
